@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 19:05:12 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/05 19:34:00 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/05 21:48:47 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,22 @@ public:
 		//----Getter-------------------//
 		std::string getName() const;
 		int getGrade() const;
-		//----------Inc/decrement----//
+		//----------Inc/decrement-----//
 		void incrementGrade();
 		void decrementGrade();
-		
+		//-------Exceptions----------//
+		class GradeTooHighException : public std::exception
+		{
+		public:
+				const char* what() const throw() override;
+		};
+		class GradeTooLowException : public std::exception
+		{
+		public:
+				const char* what() const throw() override;
+		};
+		//-------Overload--------//
+		std::ostream &operator<< (std::ostream &os, const Bureaucrat &b);
 };
 
 #endif // !BUREAUCRAT_HPP
