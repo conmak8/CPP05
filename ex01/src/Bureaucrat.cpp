@@ -6,13 +6,13 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 21:53:52 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/07 10:48:33 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/07 16:41:47 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Bureaucrat.hpp"
-#include "../include/Colors.hpp"
-#include "../include/Form.hpp"
+#include "Form.hpp"
+#include "Bureaucrat.hpp"
+#include "Colors.hpp"
 
 																													//!-----------OCF-----------------//
 Bureaucrat::Bureaucrat() : name("Default"), grade(150)
@@ -92,7 +92,7 @@ const char* Bureaucrat::GradeTooLowException::what() const noexcept
 																													//! -------Overload--------//
 std::ostream &operator<< (std::ostream &os, const Bureaucrat &b)
 {
-	os << MAGENTA << "Bureaucrat: " << b.getName() << ", grade: " << b.getGrade() << RESET;
+	os << "Bureaucrat: "  << WHITE_BOLD << b.getName() << RESET << " Grade: " << WHITE_BOLD << b.getGrade() << RESET << std::endl;
 	return (os);
 }
 																													//! -------Sign--------//
@@ -101,7 +101,8 @@ void Bureaucrat::signForm(Form &form)
 	try
 	{
 		form.beSigned(*this);
-		std::cout << GREEN << name << " signed " << *this << form.getName() << RESET << std::endl;   // ? just form 
+		// std::cout << GREEN << name << " signed " << *this << form.getName() << RESET << std::endl;   // ? just form 
+		// std::cout << GREEN << name << " signed " << *this << form << RESET << std::endl;   // ? just form 
 	}
 	catch(const std::exception &e)
 	{

@@ -6,13 +6,13 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 10:23:49 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/07 11:00:24 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/07 16:38:49 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Form.hpp"
-#include "../include/Bureaucrat.hpp"
-#include "../include/Colors.hpp"
+#include "Form.hpp"
+#include "Bureaucrat.hpp"
+#include "Colors.hpp"
 
 																													//!-----------OCF-----------------//
 Form::Form(): name("Default"), isSigned(false), gradeToSign(150), gradeToExecute(150)
@@ -23,11 +23,11 @@ Form::Form(): name("Default"), isSigned(false), gradeToSign(150), gradeToExecute
 Form::Form(const std::string &name, int gradeToSign, int gradeToExecute)
 	: name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
 {
-	std::cout << MAGENTA << "Form 🏗 Constructor called." << RESET << std::endl;
 	if (gradeToSign < 1 || gradeToExecute < 1)
 		throw Form::GradeTooHighException();
 	if (gradeToSign > 150 || gradeToExecute > 150)
 		throw Form::GradeTooLowException();
+	std::cout << MAGENTA << "Form 🏗 Constructor called." << RESET << std::endl;
 }
 
 Form::Form(const Form &src)
@@ -72,28 +72,39 @@ int Form::getGradeToSign() const
 int Form::getGradeToExecute() const
 {
 	return (this->gradeToExecute);
-}																													//!----------Exceptions------//
+}
+																													//!----------Exceptions------//
 const char* Form::GradeTooHighException::what() const noexcept
 {
-	return ("Form: Grade too high!");
+	return ("Form's Grade too high!");
 }
 
 const char* Form::GradeTooLowException::what() const noexcept
 {
-	return ("Form: Grade too low!");
-}																													//!----------Sign---------//
+	return ("Form's Grade too low!");
+}
+
+const char* Form::AlreadySignedException::what() const noexcept
+{
+	return ("Form is already signed!");
+}
+																													//!----------Sign---------//
 void Form::beSigned(const Bureaucrat &b)
 {
 	if (b.getGrade() > this->gradeToSign)
 		throw Form::GradeTooLowException();
+	if (this->isSigned)
+		throw Form::AlreadySignedException();
 	this->isSigned = true;
-	std::cout << GREEN << "Form: " << this->name << " signed by " << b.getName() << RESET << std::endl;
-}																													//! -------Overload--------//
+	std::cout << GREEN << this->name << " signed by " << UBR << b.getName() << RESET << std::endl;
+	std::cout << std::endl;
+}
+																													//! -------Overload--------//
 std::ostream &operator<< (std::ostream &os, const Form &f)
 {
-	os << "Form; " << f.getName()
-		<< " Signed: " << (f.getIsSigned() ? "yes" : "no")
-		<< " Grate to sign: " << f.getGradeToSign()
-		<< " Grate to execute: " << f.getGradeToExecute();
+	os << BOLD " Form's name: " RESET << f.getName()
+		<< BOLD "\n Signed: " RESET << (f.getIsSigned() ? GREEN "yes" RESET : RED "no" RESET)
+		<< BOLD "\n Grade to sign: " RESET << f.getGradeToSign()
+		<< BOLD "\n Grade to execute: " RESET << f.getGradeToExecute() << std::endl;
 	return (os);
 }
