@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 21:53:52 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/05 22:39:52 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/06 14:47:39 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ Bureaucrat::Bureaucrat() : name("Default"), grade(150)
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name)
 {
 	if (grade < 1)
-		throw Bureaucrat::GradeTooHighException();
+		throw GradeTooHighException();
 	else if (grade > 150)
-		throw Bureaucrat::GradeTooLowException();
+		throw GradeTooLowException();
 	this->grade = grade;
 	std::cout << MAGENTA << "Bureaucrat: 🏗 Constructor called." << RESET << std::endl;
 }
@@ -66,7 +66,7 @@ int Bureaucrat::getGrade() const
 void Bureaucrat::incrementGrade()
 {
 	if (this->grade <= 1)
-		throw Bureaucrat::GradeTooHighException();
+		throw GradeTooHighException();
 	--this->grade;
 	std::cout << GREEN << "Bureaucrat: Grade incremented to " << this->grade << RESET << std::endl;
 }
@@ -74,17 +74,17 @@ void Bureaucrat::incrementGrade()
 void Bureaucrat::decrementGrade()
 {
 	if (this->grade >= 150)
-		throw Bureaucrat::GradeTooLowException();
+		throw GradeTooLowException();
 	++this->grade;
 	std::cout << GREEN << "Bureaucrat: Grade decremented to " << this->grade << RESET << std::endl;
 }
 																													//! -------Exceptions----------//
-const char* Bureaucrat::GradeTooHighException::what() const throw()
+const char* Bureaucrat::GradeTooHighException::what() const noexcept
 {
 	return (RED "Bureaucrat: Grade too high!" RESET);
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const throw()
+const char* Bureaucrat::GradeTooLowException::what() const noexcept
 {
 	return (RED "Bureaucrat: Grade too low!" RESET);
 }

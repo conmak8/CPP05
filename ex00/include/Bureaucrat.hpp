@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 19:05:12 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/05 22:42:14 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/06 14:47:54 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ public:
 		class GradeTooHighException : public std::exception
 		{
 		public:
-				const char* what() const throw() override;
+				const char* what() const noexcept override;
 		};
 		class GradeTooLowException : public std::exception
 		{
 		public:
-				const char* what() const throw() override;
+				const char* what() const noexcept override;
 		};
 };
 														//* -------Overload--------//
