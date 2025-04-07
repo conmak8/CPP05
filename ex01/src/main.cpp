@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 22:51:25 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/07 17:11:18 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/07 17:26:14 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,18 @@ static void test1()
 	Bureaucrat mk("Mak", 42);
 	Form F("Form", 42, 42);
 
-	std::cout << mk << F << std::endl;
+	std::cout << std::endl << mk << F << std::endl;
 }
 
 static void test2()
 {
 	std::cout << CYAN"------------------------------------------------------------" << std::endl;
-	std::cout << CYAN BOLD"         TEST 2️⃣ : Bureaucrat & Form creation           " RESET << std::endl;
+	std::cout << CYAN BOLD"         TEST 2️⃣ : Invalid forms Grades           " RESET << std::endl;
 	std::cout << CYAN"------------------------------------------------------------" << std::endl;
 	try
 	{
 		Form f1("Form1", 100, 150);
-		std::cout << f1;
+		std::cout << f1 << std::endl;
 	}
 	catch (const std::exception& e)
 	{
