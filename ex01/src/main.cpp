@@ -6,13 +6,21 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 22:51:25 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/07 17:01:53 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/07 17:11:18 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "Colors.hpp"
+
+static void waitForEnter()
+{
+	std::cout << DARK_GREY "Press " << BOLD "Enter" << DARK_GREY " to move to next test... ";
+	
+	std::cin.get();  // Waits for the user to press Enter
+}
+
 
 using RunTest = void (*)();
 
@@ -85,7 +93,7 @@ static void test2()
 		std::cerr << "❌ Form4 error: " << e.what() << std::endl;
 	}
 }
-	
+
 static void test3()
 {
 	std::cout << CYAN"------------------------------------------------------------" << std::endl;
@@ -131,6 +139,11 @@ static void test5()
 	mk.signForm(f);
 	std::cout << f;
 
+	if (f.getIsSigned())
+		std::cout << "✅ Form was signed successfully.\n";
+	else
+		std::cout << "❌ Form is still unsigned.\n";
+		
 	// New bureaucrat to try sign the same form:
 	Bureaucrat b("Dima", 1);
 	std::cout << std::endl << b << std::endl;
@@ -161,18 +174,23 @@ int main()
 {
 	handleExceptions(test1);
 	std::cout << std::endl;
+	waitForEnter();
 	
 	handleExceptions(test2);
 	std::cout << std::endl;
+	waitForEnter();
 	
 	handleExceptions(test3);
 	std::cout << std::endl;
+	waitForEnter();
 	
 	handleExceptions(test4);
 	std::cout << std::endl;
+	waitForEnter();
 	
 	handleExceptions(test5);
 	std::cout << std::endl;
+	waitForEnter();
 
 	handleExceptions(test6);
 	std::cout << std::endl;
@@ -181,4 +199,3 @@ int main()
 	
 	return (0);
 }
-
