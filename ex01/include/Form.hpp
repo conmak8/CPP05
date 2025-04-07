@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 09:56:10 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/07 16:35:48 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/07 20:12:46 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define FORM_HPP
 
 # include <iostream>
+# include <exception>
 
 
 class Bureaucrat;

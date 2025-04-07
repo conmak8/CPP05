@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 19:05:12 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/07 13:46:56 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/07 20:12:36 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
-# include <stdexcept>
+# include <exception>
 
 
 class Form;
