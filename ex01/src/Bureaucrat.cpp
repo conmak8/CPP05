@@ -6,12 +6,13 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 21:53:52 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/06 14:47:39 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/07 10:42:59 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Bureaucrat.hpp"
 #include "../include/Colors.hpp"
+#include "../include/Form.hpp"
 
 																													//!-----------OCF-----------------//
 Bureaucrat::Bureaucrat() : name("Default"), grade(150)
@@ -93,4 +94,17 @@ std::ostream &operator<< (std::ostream &os, const Bureaucrat &b)
 {
 	os << MAGENTA << "Bureaucrat: " << b.getName() << ", grade: " << b.getGrade() << RESET;
 	return (os);
+}
+																													//! -------Sign--------//
+void Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << GREEN << name << " signed " << *this << form.getName() << RESET << std::endl;   // ? just form 
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << RED << name << " couldn't sign " << form.getName() << " because: " << e.what() << RESET << std::endl;
+	}
 }
