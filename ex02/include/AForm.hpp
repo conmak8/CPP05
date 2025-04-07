@@ -56,7 +56,7 @@ public:
 		public:
 				const char* what() const noexcept override;
 		};
-		class FormNotSignedException : public std::exception					
+		class FormNotSignedException : public std::exception					// ! <--- ex02
 		{
 		public:
 				const char* what() const noexcept override;
