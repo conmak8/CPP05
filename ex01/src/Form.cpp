@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 10:23:49 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/07 10:51:31 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/07 11:00:24 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,3 +55,45 @@ Form::~Form()
 																													//!-----------Methods------------//	
 																													//!----Getter-------------------//
 std::string Form::getName() const
+{
+	return (this->name);
+}
+
+bool Form::getIsSigned() const
+{
+	return (this->isSigned);
+}
+
+int Form::getGradeToSign() const
+{
+	return (this->gradeToSign);
+}
+
+int Form::getGradeToExecute() const
+{
+	return (this->gradeToExecute);
+}																													//!----------Exceptions------//
+const char* Form::GradeTooHighException::what() const noexcept
+{
+	return ("Form: Grade too high!");
+}
+
+const char* Form::GradeTooLowException::what() const noexcept
+{
+	return ("Form: Grade too low!");
+}																													//!----------Sign---------//
+void Form::beSigned(const Bureaucrat &b)
+{
+	if (b.getGrade() > this->gradeToSign)
+		throw Form::GradeTooLowException();
+	this->isSigned = true;
+	std::cout << GREEN << "Form: " << this->name << " signed by " << b.getName() << RESET << std::endl;
+}																													//! -------Overload--------//
+std::ostream &operator<< (std::ostream &os, const Form &f)
+{
+	os << "Form; " << f.getName()
+		<< " Signed: " << (f.getIsSigned() ? "yes" : "no")
+		<< " Grate to sign: " << f.getGradeToSign()
+		<< " Grate to execute: " << f.getGradeToExecute();
+	return (os);
+}
