@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
-#include "Bureaucrat.hpp"
-#include "Colors.hpp"
+#include "../include/AForm.hpp"
+#include "../include/Bureaucrat.hpp"
+#include "../include/Colors.hpp"
 
 																													//!-----------OCF-----------------//
 AForm::AForm(): name("Default"), isSigned(false), gradeToSign(150), gradeToExecute(150)

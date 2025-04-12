@@ -6,13 +6,13 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 22:51:25 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/07 17:26:14 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/12 14:13:22 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
-#include "Colors.hpp"
+#include "../include/Bureaucrat.hpp"
+#include "../include/Form.hpp"
+#include "../include/Colors.hpp"
 
 static void waitForEnter()
 {

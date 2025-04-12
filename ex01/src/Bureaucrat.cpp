@@ -6,13 +6,13 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 21:53:52 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/07 16:41:47 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/12 14:13:05 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
-#include "Bureaucrat.hpp"
-#include "Colors.hpp"
+#include "../include/Form.hpp"
+#include "../include/Bureaucrat.hpp"
+#include "../include/Colors.hpp"
 
 																													//!-----------OCF-----------------//
 Bureaucrat::Bureaucrat() : name("Default"), grade(150)

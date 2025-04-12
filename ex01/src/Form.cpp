@@ -6,13 +6,13 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 10:23:49 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/07 16:38:49 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/12 14:13:15 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
-#include "Bureaucrat.hpp"
-#include "Colors.hpp"
+#include "../include/Form.hpp"
+#include "../include/Bureaucrat.hpp"
+#include "../include/Colors.hpp"
 
 																													//!-----------OCF-----------------//
 Form::Form(): name("Default"), isSigned(false), gradeToSign(150), gradeToExecute(150)

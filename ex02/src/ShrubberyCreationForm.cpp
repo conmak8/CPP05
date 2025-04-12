@@ -6,13 +6,13 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 21:18:30 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/07 21:32:09 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/12 14:12:50 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
-#include "Bureaucrat.hpp"
-#include "Colors.hpp"
+#include "../include/ShrubberyCreationForm.hpp"
+#include "../include/Bureaucrat.hpp"
+#include "../include/Colors.hpp"
 
 
 																															// !-----------OCF-----------------//
