@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 22:51:25 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/07 22:40:17 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/13 00:52:35 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,8 +184,13 @@ static void testShrubberyForm()
 		std::cout << mak << std::endl;
 		std::cout << form << std::endl;
 
-		std::cout << GREEN "\n✅ Signing the form...\n" RESET;
+		// std::cout << GREEN "\n✅ Signing the form...\n" RESET;
+		// mak.signForm(form);
 		mak.signForm(form);
+		if (form.getIsSigned())
+			std::cout << GREEN "✅ Form was signed successfully.\n" RESET;
+		else
+			std::cout << RED "❌ Form is still unsigned.\n" RESET;
 
 		std::cout << GREEN "\n✅ Executing the form...\n" RESET;
 		mak.executeForm(form);
