@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 22:51:25 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/13 10:26:19 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/13 13:24:57 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include "../include/AForm.hpp"
 #include "../include/ShrubberyCreationForm.hpp"
 #include "../include/RobotomyRequestForm.hpp"
+#include "../include/PresidentialPardonForm.hpp"
 #include "../include/Colors.hpp"
-
 
 
 static void waitForEnter()
@@ -149,6 +149,67 @@ static void testRobotomyExecutionFail()
 	}
 }
 
+static void testPresidentialExecution()
+{
+	std::cout << CYAN"------------------------------------------------------------" << std::endl;
+	std::cout << CYAN BOLD"  TEST 1️⃣ 0️⃣ : PresidentialPardonForm Execution Test     " RESET << std::endl;
+	std::cout << CYAN"------------------------------------------------------------" << std::endl;
+
+	try
+	{
+		Bureaucrat mak("Supreme Chancellor Mak", 1); // can sign & execute
+		PresidentialPardonForm form("Anakin Skywalker");
+
+		std::cout << mak << std::endl;
+		std::cout << form << std::endl;
+
+		std::cout << GREEN "\n✒️  Signing the form...\n" RESET;
+		mak.signForm(form);
+		if (form.getIsSigned())
+			std::cout << GREEN "✅ Form was signed successfully.\n" RESET;
+		else
+			std::cout << RED "❌ Form is still unsigned.\n" RESET;
+
+		std::cout << GREEN "\n📥 Executing the form...\n" RESET;
+		mak.executeForm(form);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << RED "❌ Exception: " << e.what() << RESET << std::endl;
+	}
+}
+
+
+static void testPresidentialExecutionFail()
+{
+	std::cout << CYAN"------------------------------------------------------------" << std::endl;
+	std::cout << CYAN BOLD"  TEST 1️⃣ 1️⃣ : PresidentialPardonForm Execution Test Fail  " RESET << std::endl;
+	std::cout << CYAN"------------------------------------------------------------" << std::endl;
+
+	try
+	{
+		Bureaucrat mak("Supreme Chancellor Mak", 12); // can sign & execute
+		PresidentialPardonForm form("Anakin Skywalker");
+
+		std::cout << mak << std::endl;
+		std::cout << form << std::endl;
+
+		std::cout << GREEN "\n✒️  Signing the form...\n" RESET;
+		mak.signForm(form);
+		if (form.getIsSigned())
+			std::cout << GREEN "✅ Form was signed successfully.\n" RESET;
+		else
+			std::cout << RED "❌ Form is still unsigned.\n" RESET;
+
+		std::cout << GREEN "\n📥 Executing the form...\n" RESET;
+		mak.executeForm(form);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << RED "❌ Exception: " << e.what() << RESET << std::endl;
+	}
+}
+
 int main()
 {
 	std::srand(std::time(nullptr)); // ? check again Seed the random number generator
@@ -169,6 +230,13 @@ int main()
 	std::cout << std::endl;
 	waitForEnter();
 	
+	handleExceptions(testPresidentialExecution);
+	std::cout << std::endl;
+	waitForEnter();
+
+	handleExceptions(testPresidentialExecutionFail);
+	std::cout << std::endl;
+	waitForEnter();
 	
 	std::cout << "\n✅ End of tests." << std::endl;
 	
