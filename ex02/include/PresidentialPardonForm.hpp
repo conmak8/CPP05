@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/13 00:57:23 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/13 13:11:07 by cmakario         ###   ########.fr       */
+/*   Created: 2025/04/13 12:56:56 by cmakario          #+#    #+#             */
+/*   Updated: 2025/04/13 13:10:54 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-# define ROBOTOMYREQUESTFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
 # include "AForm.hpp"
 # include <string>
-# include <cstdlib> // for rand()
-# include <ctime>   // for time()
 
 
-class RobotomyRequestForm : public AForm
+class PresidentialPardonForm : public AForm
 {
 private:
-	std::string	target;
+	std::string target;
 public:
 	//-----------OCF-----------------//
-	RobotomyRequestForm();												// * Constructor (default)
-	RobotomyRequestForm(const std::string &target);						// * Constructor with parameters	
-	RobotomyRequestForm(const RobotomyRequestForm &src);				// * Copy constructor
-	RobotomyRequestForm &operator=(const RobotomyRequestForm &src);		// * Copy Assignment operator
-	~RobotomyRequestForm();												// * Destructor
-		//===============================//
+	PresidentialPardonForm();											// * Constructor (default)
+	PresidentialPardonForm(std::string target);							// * Constructor (with parameters)
+	PresidentialPardonForm(const PresidentialPardonForm &src);			// * Copy constructor
+	PresidentialPardonForm &operator=(const PresidentialPardonForm &src);	// * Assignment operator overload
+	~PresidentialPardonForm();				// * Destructor
+			//===============================//
 																		//*-----------Methods------------//
 																		//*----Execute-----------------//
 	void execute(const Bureaucrat &executor) const override;
 };
 
-#endif // !ROBOTOMYREQUESTFORM_HPP
+#endif // !PRESIDENTIALPARDONFORM_HPP
