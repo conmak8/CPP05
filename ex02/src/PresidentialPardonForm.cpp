@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 13:03:37 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/13 13:10:37 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/13 13:17:16 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,3 @@ void PresidentialPardonForm::execute(const Bureaucrat &executor) const
 
 	std::cout << GREEN << target << " has been pardoned by Zaphod Beeblebrox." << RESET << std::endl;
 }
-

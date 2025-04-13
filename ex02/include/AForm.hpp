@@ -32,7 +32,7 @@ public:
 		AForm(const std::string &name, int gradeToSign, int gradeToExecute);	// * Constructor with parameters
 		AForm(const AForm &src);												// * Copy Contructor
 		AForm &operator= (const AForm &src);									// * Copy Assignment operator
-		~AForm();																// * Destructor
+		virtual ~AForm();																// * Destructor
 		//===============================//
 																				//*-----------Methods------------//
 																				//*----Getter-------------------//

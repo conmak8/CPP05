@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 22:51:25 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/13 13:24:57 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/13 13:47:35 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -210,6 +210,43 @@ static void testPresidentialExecutionFail()
 	}
 }
 
+static void testAllFormsExecutionMadness()
+{
+	std::cout << CYAN"------------------------------------------------------------" << std::endl;
+	std::cout << CYAN BOLD"  TEST 1️⃣ 2️⃣ : Bureaucratic Stress Test (All Forms)      " RESET << std::endl;
+	std::cout << CYAN"------------------------------------------------------------" << std::endl;
+
+	Bureaucrat boss("Captain Hoho", 1);  // Max privileges
+	std::cout << boss << std::endl;
+
+	AForm* forms[3];
+	forms[0] = new ShrubberyCreationForm("Park");
+	forms[1] = new RobotomyRequestForm("R2D2");
+	forms[2] = new PresidentialPardonForm("Han Solo");
+
+	for (int i = 0; i < 3; ++i)
+	{
+		std::cout << MAGENTA "\n🧾 Signing & Executing Form: " << forms[i]->getName() << RESET << std::endl;
+		
+		try
+		{
+			boss.signForm(*forms[i]);
+			boss.executeForm(*forms[i]);
+		}
+		catch (const std::exception& e)
+		{
+			std::cerr << RED "❌ Exception: " << e.what() << RESET << std::endl;
+		}
+	}
+
+	// Cleanup (since we used new)
+	for (int i = 0; i < 3; ++i)
+		delete forms[i];
+
+	std::cout << GREEN "\n✅ All forms tested.\n" RESET;
+}
+
+
 int main()
 {
 	std::srand(std::time(nullptr)); // ? check again Seed the random number generator
@@ -235,6 +272,10 @@ int main()
 	waitForEnter();
 
 	handleExceptions(testPresidentialExecutionFail);
+	std::cout << std::endl;
+	waitForEnter();
+	
+	handleExceptions(testAllFormsExecutionMadness);
 	std::cout << std::endl;
 	waitForEnter();
 	
