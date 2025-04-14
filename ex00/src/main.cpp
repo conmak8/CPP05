@@ -6,14 +6,19 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 22:51:25 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/07 14:36:08 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/14 21:42:54 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "../include/Colors.hpp"
 
-
+static void waitForEnter()
+{
+	std::cout <<  "Press " << BOLD "Enter" << RESET " to move to next test... ";
+	
+	std::cin.get();  // Waits for the user to press Enter
+}
 
 int main()
 {
@@ -32,10 +37,11 @@ int main()
 		std::cout << "\n🔼 Trying to promote Alice (already grade 1)...\n";
 		alice.incrementGrade();
 	}
-	catch (std::exception& e)
+	catch (std::exception &e)
 	{
 		std::cerr << "💥 Exception: " << e.what() << "\n";
 	}
+	waitForEnter();
 	
 	std::cout << "\n🔽 Trying to demote Chad (already grade 150)...\n";
 	try
@@ -43,29 +49,32 @@ int main()
 		Bureaucrat chad("Chad", 150);
 		chad.decrementGrade();
 	}
-	catch (std::exception& e)
+	catch (std::exception &e)
 	{
 		std::cerr << "💥 Exception: " << e.what() << "\n";
 	}
-
+	waitForEnter();
+	
 	std::cout << "\n🚫 Creating invalid Bureaucrats...\n";
 	try
 	{
 		Bureaucrat errorGuy("TooElite", 0);
 	}
-	catch (std::exception& e)
+	catch (std::exception &e)
 	{
-		std::cerr << "💥 Exception: " << e.what() << "\n";
+		std::cerr << "\n💥 Exception: " << e.what() << "\n";
 	}
+	waitForEnter();
 	
 	try
 	{
 		Bureaucrat errorGal("TooLow", 200);
 	}
-	catch (std::exception& e)
+	catch (std::exception &e)
 	{
-		std::cerr << "💥 Exception: " << e.what() << "\n";
+		std::cerr << "\n💥 Exception: " << e.what() << "\n";
 	}
+	waitForEnter();
 	
 	std::cout << "\n✅ Everything tested! Goodbye!\n";
 	return 0;

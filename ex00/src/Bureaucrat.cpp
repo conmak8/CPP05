@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 21:53:52 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/06 14:47:39 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/14 21:29:17 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Bureaucrat::Bureaucrat() : name("Default"), grade(150)
 	std::cout << MAGENTA << "Bureaucrat: 🏗 Constructor called." << RESET << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name)
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name)
 {
 	if (grade < 1)
 		throw GradeTooHighException();
@@ -91,6 +91,6 @@ const char* Bureaucrat::GradeTooLowException::what() const noexcept
 																													//! -------Overload--------//
 std::ostream &operator<< (std::ostream &os, const Bureaucrat &b)
 {
-	os << MAGENTA << "Bureaucrat: " << b.getName() << ", grade: " << b.getGrade() << RESET;
+	os << MAGENTA "Bureaucrat: " << b.getName() << ", grade: " << b.getGrade() << RESET;
 	return (os);
 }
