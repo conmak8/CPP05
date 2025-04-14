@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 22:51:25 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/13 13:47:35 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/13 19:39:38 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void waitForEnter()
 }
 
 using RunTest = void (*)();
+// typedef void (*RunTest)();
 
 static void handleExceptions(RunTest testCase)
 {
