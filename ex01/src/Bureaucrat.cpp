@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 21:53:52 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/12 14:13:05 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/14 22:19:05 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,6 @@ void Bureaucrat::signForm(Form &form)
 	try
 	{
 		form.beSigned(*this);
-		// std::cout << GREEN << name << " signed " << *this << form.getName() << RESET << std::endl;   // ? just form 
-		// std::cout << GREEN << name << " signed " << *this << form << RESET << std::endl;   // ? just form 
 	}
 	catch(const std::exception &e)
 	{

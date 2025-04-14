@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 09:56:10 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/07 20:12:46 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/14 23:11:32 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ public:
 				const char* what() const noexcept override;
 		};
 																			//*----------Sign---------//
-		void beSigned(const Bureaucrat &b);
+		void beSigned(const Bureaucrat &b) noexcept(false);
 };
 																			//* -------Overload--------//
 std::ostream &operator<< (std::ostream &os, const Form &f);
