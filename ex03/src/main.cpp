@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 22:51:25 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/14 15:25:02 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/14 23:07:14 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ static void waitForEnter()
 {
 	std::cout << DARK_GREY "Press " << BOLD "Enter" << DARK_GREY " to move to next test... ";
 	
-	std::cin.get();  // Waits for the user to press Enter
+	// std::cin.get();  // Waits for the user to press Enter
+	std::string t;
+	std::getline(std::cin, t); 
 }
 
 using RunTest = void (*)();

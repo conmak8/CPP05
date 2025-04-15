@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 12:56:56 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/13 13:10:54 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/15 00:51:04 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
 			//===============================//
 																		//*-----------Methods------------//
 																		//*----Execute-----------------//
-	void execute(const Bureaucrat &executor) const override;
+	void execute(const Bureaucrat &executor) const noexcept(false) override;
 };
 
 #endif // !PRESIDENTIALPARDONFORM_HPP

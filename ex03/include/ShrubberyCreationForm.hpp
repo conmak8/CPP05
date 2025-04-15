@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 21:03:34 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/07 21:08:03 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/15 00:51:13 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ public:
 		//===============================//
 																				//*-----------Methods------------//
 																				//*----Execute-----------------//
-		void execute(const Bureaucrat &executor) const override;
+		void execute(const Bureaucrat &executor) const noexcept(false) override;
 };
 
 #endif // !SHRUBBERYCREATIONFORM_HPP

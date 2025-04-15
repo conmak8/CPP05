@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 00:57:23 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/13 13:11:07 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/15 00:51:08 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ public:
 		//===============================//
 																		//*-----------Methods------------//
 																		//*----Execute-----------------//
-	void execute(const Bureaucrat &executor) const override;
+	void execute(const Bureaucrat &executor) const noexcept(false) override;
 };
 
 #endif // !ROBOTOMYREQUESTFORM_HPP

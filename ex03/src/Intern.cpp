@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 16:30:41 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/14 18:09:25 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/15 09:31:06 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ Intern::~Intern()
 // }
 
 // solutioin using Lambda expressions
-
 AForm* Intern::makeForm(const std::string &formName, const std::string &target) const
 {
 	std::string formNames[3] = {"robotomy request", 
@@ -89,3 +88,4 @@ AForm* Intern::makeForm(const std::string &formName, const std::string &target) 
 	std::cerr << RED "❌ Intern: Unknown form \"" << formName << "\"." RESET << std::endl;
 	return nullptr;
 }
+

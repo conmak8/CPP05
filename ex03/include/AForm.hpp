@@ -62,7 +62,7 @@ public:
 				const char* what() const noexcept override;
 		};
 																				//*----------Sign---------//
-		void beSigned(const Bureaucrat &b);
+		void beSigned(const Bureaucrat &b) noexcept(false);
 																				//*----------Execute------//  /
 		virtual void execute(const Bureaucrat& executor) const = 0;				// ! <--- ex02
 };
