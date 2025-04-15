@@ -1,5 +1,5 @@
 # Project Name
-NAME		=	$(BIN_DIR)/maggot
+NAME		=	$(BIN_DIR)/formTypes
 # Command-line arguments for run and valgrind
 ARGS		=
 

@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 22:51:25 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/14 18:59:13 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/15 09:15:14 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ static void waitForEnter()
 {
 	std::cout << DARK_GREY "Press " << BOLD "Enter" << DARK_GREY " to move to next test... ";
 	
-	std::cin.get();  // Waits for the user to press Enter
+	// std::cin.get();  // Waits for the user to press Enter
+	std::string t;
+	std::getline(std::cin, t); 
 }
 
 using RunTest = void (*)();
@@ -57,14 +59,14 @@ static void testShrubberyForm()
 		// std::cout << GREEN "\n✅ Signing the form...\n" RESET;
 		mak.signForm(form);
 		if (form.getIsSigned())
-		std::cout << GREEN "✅ Form was signed successfully.\n" RESET;
+			std::cout << GREEN "✅ Form was signed successfully.\n" RESET;
 		else
-		std::cout << RED "❌ Form is still unsigned.\n" RESET;
+			std::cout << RED "❌ Form is still unsigned.\n" RESET;
 		
 		std::cout << GREEN "\n✅ Executing the form...\n" RESET;
 		mak.executeForm(form);
 		
-		std::cout << GREEN "\n🎉 Check the file: backyard_shrubbery\n" RESET;
+		std::cout << GREEN "🎉 Check the file: backyard_shrubbery\n\n" RESET;
 		
 	}
 	catch (const std::exception &e)
@@ -79,11 +81,14 @@ static void testRobotomyHeader()
 	std::cout << CYAN BOLD"      TEST 8️⃣ : RobotomyRequestForm header build test      " RESET << std::endl;
 	std::cout << CYAN"------------------------------------------------------------" << std::endl;
 	
-	try {
+	try
+	{
 		RobotomyRequestForm r("marvin");
 		std::cout << "✅ RobotomyRequestForm object constructed successfully!\n";
 		std::cout << r << std::endl; // Check << overload works from AForm
-	} catch (const std::exception& e) {
+	}
+	catch (const std::exception& e)
+	{
 		std::cerr << RED "❌ Exception: " << e.what() << RESET << std::endl;
 	}
 }
@@ -135,9 +140,9 @@ static void testRobotomyExecutionFail()
 		std::cout << GREEN "\n✒️  Signing the form...\n" RESET;
 		noob.signForm(form);
 		if (form.getIsSigned())
-		std::cout << GREEN "✅ Form was signed successfully.\n" RESET;
+			std::cout << GREEN "✅ Form was signed successfully.\n" RESET;
 		else
-		std::cout << RED "❌ Form is still unsigned.\n" RESET;
+			std::cout << RED "❌ Form is still unsigned.\n" RESET;
 		
 		std::cout << GREEN "\n📥 Intern tries to execute the form...\n" RESET;
 		std::cout << YELLOW "⚠️  Expecting execution to FAIL due to low grade...\n" RESET;
@@ -250,7 +255,7 @@ static void testAllFormsExecutionMadness()
 
 int main()
 {
-	std::srand(std::time(nullptr)); // ? check again Seed the random number generator
+	std::srand(std::time(nullptr));
 	
 	handleExceptions(testShrubberyForm);
 	std::cout << std::endl;

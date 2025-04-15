@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/05 19:05:12 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/07 20:58:02 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/14 23:19:16 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ public:
 				const char* what() const noexcept override;
 		};
 														// * --------Sign---------//
-		void signForm(AForm &form);
+		void signForm(AForm &form) noexcept(false);
 														// * --------Execute------//
 		void executeForm(const AForm &form) const;		// ! <--- ex02
 

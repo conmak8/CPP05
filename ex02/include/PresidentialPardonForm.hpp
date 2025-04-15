@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 12:56:56 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/13 13:10:54 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/15 00:48:08 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ private:
 	std::string target;
 public:
 	//-----------OCF-----------------//
-	PresidentialPardonForm();											// * Constructor (default)
-	PresidentialPardonForm(std::string target);							// * Constructor (with parameters)
-	PresidentialPardonForm(const PresidentialPardonForm &src);			// * Copy constructor
+	PresidentialPardonForm();												// * Constructor (default)
+	PresidentialPardonForm(std::string target);								// * Constructor (with parameters)
+	PresidentialPardonForm(const PresidentialPardonForm &src);				// * Copy constructor
 	PresidentialPardonForm &operator=(const PresidentialPardonForm &src);	// * Assignment operator overload
-	~PresidentialPardonForm();				// * Destructor
+	~PresidentialPardonForm();												// * Destructor
 			//===============================//
-																		//*-----------Methods------------//
-																		//*----Execute-----------------//
-	void execute(const Bureaucrat &executor) const override;
+																			//*-----------Methods------------//
+																			//*----Execute-----------------//
+	void execute(const Bureaucrat &executor) const noexcept(false) override;
 };
 
 #endif // !PRESIDENTIALPARDONFORM_HPP

@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 01:45:24 by cmakario          #+#    #+#             */
-/*   Updated: 2025/04/13 13:10:14 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/04/15 00:53:33 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,5 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 	if (std::rand() % 2 != 0)
 		std::cout << "❌ " << this->target << " has been robotomized unsuccessfully!" << std::endl;
 	else
-	std::cout << "✅ " << this->target << " has been robotomized successfully!" << std::endl;
+		std::cout << "✅ " << this->target << " has been robotomized successfully!" << std::endl;
 }
